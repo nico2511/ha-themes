@@ -1,0 +1,13 @@
+# ─────────────────────────────────────────────────────────────────────────────
+#  Extrait de configuration.yaml (à fusionner avec ta section frontend:)
+#  - charge les thèmes du dossier /config/themes/
+#  - charge card-mod tôt (nécessaire pour les sections card-mod-* du thème :
+#    barre latérale, fenêtres more-info, pages de configuration)
+#  - charge la police Inter locale (style Nuit flat)
+#  Redémarrer Home Assistant après modification.
+# ─────────────────────────────────────────────────────────────────────────────
+frontend:
+  themes: !include_dir_merge_named themes
+  extra_module_url:
+    - /hacsfiles/lovelace-card-mod/card-mod.js
+    - /local/nuit-flat/inter-local.js

@@ -1,0 +1,39 @@
+# ─────────────────────────────────────────────────────────────────────────────
+#  Carte « console sombre » (style MediaTracker v5)           ✔ utilisé en v5
+#  Regroupe plusieurs cartes dans un cadre #161618, coins 16 px, liseré discret.
+#  Prérequis : card-mod (fournit custom:mod-card), Mushroom pour le titre.
+#  Les cartes internes sont rendues transparentes pour ne garder qu'un cadre.
+# ─────────────────────────────────────────────────────────────────────────────
+type: custom:mod-card
+card_mod:
+  style: |-
+    ha-card {
+      background: #161618 !important;
+      border-radius: 16px !important;
+      border: 1px solid rgba(255,255,255,0.06) !important;
+      box-shadow: none !important;
+      padding: 6px !important;
+      margin: 0 !important;
+    }
+card:
+  type: vertical-stack
+  cards:
+    - type: custom:mushroom-title-card
+      title: Mon bloc
+      card_mod:
+        style: |-
+          ha-card {
+            background: transparent !important;
+            box-shadow: none !important;
+            border: none !important;
+          }
+    - type: entities
+      entities:
+        - entity: sun.sun
+      card_mod:
+        style: |-
+          ha-card {
+            background: transparent !important;
+            box-shadow: none !important;
+            border: none !important;
+          }

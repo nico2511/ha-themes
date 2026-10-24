@@ -1,0 +1,138 @@
+# Modèles button-card du style « Nuit flat » (nf_*).
+# Utilisent les variables --nf-* du thème nuit_flat.
+# À coller en tête de la configuration brute d'un dashboard (clé button_card_templates),
+# ou à inclure : button_card_templates: !include button-card-templates/nuit-flat.yaml (mode YAML)
+# — dans ce cas, retirer la ligne « button_card_templates: » ci-dessous et désindenter.
+button_card_templates:
+  # Base commune : tuile plate, filet 1 px, rayon 4 px
+  nf_base:
+    show_state: true
+    styles:
+      card:
+        - background: var(--nf-panel2)
+        - border: 1px solid var(--nf-line)
+        - border-radius: 4px
+        - box-shadow: none
+        - padding: 12px
+        - font-family: var(--primary-font-family)
+      grid:
+        - grid-template-areas: '"i" "n" "s"'
+        - grid-template-columns: 1fr
+        - grid-template-rows: min-content 1fr min-content
+        - justify-items: start
+      img_cell:
+        - justify-content: start
+        - width: 24px
+        - height: 24px
+      icon:
+        - width: 22px
+        - color: var(--nf-muted)
+      name:
+        - justify-self: start
+        - align-self: end
+        - font-size: 13px
+        - font-weight: 500
+        - color: var(--nf-text)
+        - margin-top: 14px
+      state:
+        - justify-self: start
+        - font-size: 12px
+        - color: var(--nf-muted)
+
+  # Bascule (lumière / prise) : actif = fond pastel transparent, accent coloré
+  nf_toggle:
+    template: nf_base
+    variables:
+      accent: var(--nf-mint)
+      accent_a: var(--nf-mint-a)
+    tap_action:
+      action: toggle
+    hold_action:
+      action: more-info
+    styles:
+      card:
+        - min-height: 96px
+    state:
+      - value: "on"
+        styles:
+          card:
+            - background: "[[[ return variables.accent_a ]]]"
+            - border-color: transparent
+          icon:
+            - color: "[[[ return variables.accent ]]]"
+          state:
+            - color: var(--nf-text)
+      - value: unavailable
+        styles:
+          card:
+            - opacity: "0.55"
+
+  nf_light:
+    template: nf_toggle
+    variables:
+      accent: var(--nf-peach)
+      accent_a: var(--nf-peach-a)
+
+  # Lecture seule (sécurité) : aucun toggle, tap = more-info
+  nf_lecture:
+    template: nf_base
+    tap_action:
+      action: more-info
+    hold_action:
+      action: none
+    double_tap_action:
+      action: none
+
+  # Valeur chiffrée (énergie, consommables)
+  nf_valeur:
+    show_icon: false
+    show_name: true
+    show_state: true
+    tap_action:
+      action: more-info
+    styles:
+      card:
+        - background: var(--nf-panel2)
+        - border: 1px solid var(--nf-line)
+        - border-radius: 4px
+        - box-shadow: none
+        - padding: 12px
+      grid:
+        - grid-template-areas: '"s" "n"'
+        - justify-items: start
+      state:
+        - font-size: 22px
+        - font-weight: 600
+        - letter-spacing: -0.02em
+        - color: var(--nf-text)
+        - font-variant-numeric: tabular-nums
+      name:
+        - font-size: 12px
+        - color: var(--nf-muted)
+
+  # Titre de section : majuscules, gris, filet
+  nf_titre:
+    show_icon: false
+    show_state: false
+    tap_action:
+      action: none
+    styles:
+      card:
+        - background: none
+        - border: none
+        - box-shadow: none
+        - padding: 14px 2px 2px
+      name:
+        - font-size: 12px
+        - font-weight: 600
+        - letter-spacing: 0.08em
+        - text-transform: uppercase
+        - color: var(--nf-muted)
+        - justify-self: start
+      grid:
+        - grid-template-areas: '"n"'
+    card_mod:
+      style: |
+        ha-card::after { content: ""; position: absolute; left: 0; right: 0; bottom: 6px; height: 1px; background: var(--nf-line); z-index: -1; }
+        #name { background: var(--nf-bg); padding-right: 8px; }
+

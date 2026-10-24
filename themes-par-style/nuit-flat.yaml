@@ -1,0 +1,462 @@
+# ─────────────────────────────────────────────────────────────────────────────
+#  Thème « Nuit flat » v3 — pour TOUT Home Assistant (pas seulement le dashboard)
+#  Sombre, plat, touches pastel. Fond #181c23, rayon 4 px, police Inter.
+#  Installation : voir README.md (HACS ou copie dans /config/themes/)
+#  Aucune ressource externe, aucun secret. Les sections card-mod-* nécessitent
+#  card-mod chargé en module frontend (extra_module_url).
+# ─────────────────────────────────────────────────────────────────────────────
+nuit_flat:
+  # ═══ 0. Palette (variables perso, réutilisées partout) ═════════════════════
+  nf-bg: "#181c23"          # fond général
+  nf-panel: "#20252e"       # cartes, sidebar sélection, dialogues
+  nf-panel2: "#2b313c"      # surfaces secondaires, champs, tuiles
+  nf-line: "#394150"        # filets 1 px
+  nf-line-hover: "#4a5364"
+  nf-text: "#e4e8ee"
+  nf-muted: "#a0a9b8"
+  nf-faint: "#6b7485"
+  nf-mint: "#9fd8c3"        # accent principal (actif / OK)
+  nf-lavender: "#b7aee0"    # accent secondaire (sélection, focus)
+  nf-peach: "#f0c0a4"       # avertissement / lumière allumée
+  nf-blue: "#a6c4de"        # information / eau / média
+  nf-rose: "#e59a9a"        # erreur / alarme
+  nf-mint-a: "rgba(159, 216, 195, 0.16)"
+  nf-lavender-a: "rgba(183, 174, 224, 0.16)"
+  nf-peach-a: "rgba(240, 192, 164, 0.16)"
+  nf-blue-a: "rgba(166, 196, 222, 0.16)"
+  nf-rose-a: "rgba(229, 154, 154, 0.16)"
+  nf-radius: 4px
+
+  # ═══ 1. Typographie — Inter partout ═══════════════════════════════════════
+  primary-font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif
+  ha-font-family-body: var(--primary-font-family)
+  ha-font-family-heading: var(--primary-font-family)
+  ha-font-family-code: '"JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace'
+  code-font-family: var(--ha-font-family-code)
+  paper-font-common-base_-_font-family: var(--primary-font-family)
+  paper-font-body1_-_font-family: var(--primary-font-family)
+  paper-font-subhead_-_font-family: var(--primary-font-family)
+  paper-font-headline_-_font-family: var(--primary-font-family)
+  paper-font-title_-_font-family: var(--primary-font-family)
+  mdc-typography-font-family: var(--primary-font-family)
+  mdc-typography-body1-font-family: var(--primary-font-family)
+  mdc-typography-button-font-family: var(--primary-font-family)
+  mdc-typography-headline6-font-family: var(--primary-font-family)
+  mdc-typography-subtitle1-font-family: var(--primary-font-family)
+  mdc-typography-button-text-transform: none
+  mdc-typography-button-letter-spacing: "0"
+  ha-card-header-font-family: var(--primary-font-family)
+  ha-card-header-font-size: 16px
+  ha-font-weight-bold: "600"
+  ha-line-height-normal: "1.45"
+
+  # ═══ 2. Couleurs primaires / accents ══════════════════════════════════════
+  primary-color: var(--nf-mint)
+  dark-primary-color: "#7fb9a4"
+  light-primary-color: "#2a4a41"
+  accent-color: var(--nf-lavender)
+  rgb-primary-color: 159, 216, 195
+  rgb-accent-color: 183, 174, 224
+  text-primary-color: "#181c23"          # texte posé SUR la couleur primaire
+  text-accent-color: "#181c23"
+  text-light-primary-color: var(--nf-text)
+  rgb-text-primary-color: 24, 28, 35
+  mdc-theme-primary: var(--nf-mint)
+  mdc-theme-secondary: var(--nf-lavender)
+  mdc-theme-on-primary: "#181c23"
+  mdc-theme-on-secondary: "#181c23"
+  mdc-theme-text-primary-on-background: var(--nf-text)
+  mdc-theme-text-secondary-on-background: var(--nf-muted)
+  mdc-theme-text-icon-on-background: var(--nf-muted)
+
+  # ═══ 3. Fonds & textes ════════════════════════════════════════════════════
+  primary-background-color: var(--nf-bg)
+  secondary-background-color: var(--nf-panel)
+  clear-background-color: var(--nf-bg)
+  lovelace-background: var(--nf-bg)
+  view-background: var(--nf-bg)
+  primary-text-color: var(--nf-text)
+  secondary-text-color: var(--nf-muted)
+  disabled-text-color: var(--nf-faint)
+  rgb-primary-text-color: 228, 232, 238
+  rgb-secondary-text-color: 160, 169, 184
+  divider-color: var(--nf-line)
+  outline-color: var(--nf-line)
+  outline-hover-color: var(--nf-line-hover)
+  disabled-color: var(--nf-line)
+  scrollbar-thumb-color: var(--nf-line)
+  markdown-code-background-color: var(--nf-panel2)
+  code-editor-background-color: var(--nf-panel2)
+  codemirror-property: var(--nf-blue)
+  codemirror-keyword: var(--nf-lavender)
+  codemirror-string: var(--nf-mint)
+  codemirror-number: var(--nf-peach)
+  table-row-background-color: var(--nf-panel)
+  table-row-alternative-background-color: var(--nf-panel2)
+  data-table-background-color: var(--nf-panel)
+  mdc-theme-surface: var(--nf-panel)
+  mdc-theme-background: var(--nf-bg)
+
+  # ═══ 4. Cartes (rayon 4 px, filet 1 px, aucune ombre) ═════════════════════
+  card-background-color: var(--nf-panel)
+  rgb-card-background-color: 32, 37, 46
+  ha-card-background: var(--nf-panel)
+  ha-card-border-radius: 4px
+  ha-card-border-width: 1px
+  ha-card-border-color: var(--nf-line)
+  ha-card-box-shadow: none
+  ha-card-box-shadow-hover: none
+  ha-badge-border-radius: 4px
+  ha-badge-background-color: var(--nf-panel)
+  ha-tile-icon-border-radius: 4px
+  tile-icon-border-radius: 4px
+  ha-heading-card-title-font-size: 14px
+  ha-section-title-font-size: 12px
+  # Jetons de rayon du design system HA (2025+) — tout ramené à 4 px
+  ha-border-radius-sm: 4px
+  ha-border-radius-md: 4px
+  ha-border-radius-lg: 4px
+  ha-border-radius-xl: 4px
+  ha-border-radius-2xl: 4px
+  ha-border-radius-3xl: 4px
+  ha-border-radius-4xl: 4px
+  ha-border-radius-pill: 4px
+  mdc-shape-small: 4px
+  mdc-shape-medium: 4px
+  mdc-shape-large: 4px
+
+  # ═══ 5. En-tête (app header / toolbar) ════════════════════════════════════
+  app-header-background-color: var(--nf-bg)
+  app-header-text-color: var(--nf-text)
+  app-header-selection-bar-color: var(--nf-mint)
+  app-header-edit-background-color: "#2a2f3a"
+  app-header-edit-text-color: var(--nf-text)
+  app-header-border-bottom: 1px solid var(--nf-line)
+  app-theme-color: var(--nf-bg)            # barre d'état du navigateur mobile
+
+  # ═══ 6. Barre latérale ════════════════════════════════════════════════════
+  sidebar-background-color: var(--nf-bg)
+  sidebar-text-color: var(--nf-muted)
+  sidebar-icon-color: var(--nf-muted)
+  sidebar-selected-background-color: var(--nf-panel2)
+  sidebar-selected-text-color: var(--nf-text)
+  sidebar-selected-icon-color: var(--nf-mint)
+  sidebar-menu-button-background-color: var(--nf-bg)
+  sidebar-menu-button-text-color: var(--nf-text)
+  sidebar-border-color: var(--nf-line)
+  sidebar-badge-background-color: var(--nf-lavender)
+  sidebar-badge-text-color: "#181c23"
+
+  # ═══ 7. Dialogues (more-info, confirmations, éditeurs) ════════════════════
+  ha-dialog-border-radius: 4px
+  ha-dialog-surface-background: var(--nf-panel)
+  dialog-box-shadow: none
+  dialog-backdrop-filter: none
+  mdc-dialog-scrim-color: "rgba(10, 12, 16, 0.72)"
+  mdc-dialog-heading-ink-color: var(--nf-text)
+  mdc-dialog-content-ink-color: var(--nf-muted)
+  mdc-dialog-box-shadow: none
+  ha-dialog-header-border-bottom: 1px solid var(--nf-line)
+  more-info-header-background: var(--nf-panel)
+  ha-bottom-sheet-border-radius: 4px
+
+  # ═══ 8. Champs / sélecteurs / boutons ═════════════════════════════════════
+  input-fill-color: var(--nf-panel2)
+  input-disabled-fill-color: var(--nf-panel)
+  input-ink-color: var(--nf-text)
+  input-label-ink-color: var(--nf-muted)
+  input-disabled-ink-color: var(--nf-faint)
+  input-idle-line-color: var(--nf-line)
+  input-hover-line-color: var(--nf-line-hover)
+  input-disabled-line-color: var(--nf-line)
+  input-outlined-idle-border-color: var(--nf-line)
+  input-outlined-hover-border-color: var(--nf-line-hover)
+  input-dropdown-icon-color: var(--nf-muted)
+  mdc-text-field-fill-color: var(--nf-panel2)
+  mdc-text-field-disabled-fill-color: var(--nf-panel)
+  mdc-text-field-ink-color: var(--nf-text)
+  mdc-text-field-label-ink-color: var(--nf-muted)
+  mdc-text-field-idle-line-color: var(--nf-line)
+  mdc-text-field-hover-line-color: var(--nf-line-hover)
+  mdc-text-field-outlined-idle-border-color: var(--nf-line)
+  mdc-text-field-outlined-hover-border-color: var(--nf-line-hover)
+  mdc-select-fill-color: var(--nf-panel2)
+  mdc-select-ink-color: var(--nf-text)
+  mdc-select-label-ink-color: var(--nf-muted)
+  mdc-select-idle-line-color: var(--nf-line)
+  mdc-select-dropdown-icon-color: var(--nf-muted)
+  mdc-menu-item-height: 40px
+  mdc-list-vertical-padding: 4px
+  ha-button-border-radius: 4px
+  mdc-button-outline-color: var(--nf-line)
+  mdc-button-disabled-ink-color: var(--nf-faint)
+  mdc-checkbox-unchecked-color: var(--nf-muted)
+  mdc-radio-unchecked-color: var(--nf-muted)
+  mdc-checkbox-ink-color: "#181c23"
+  ha-control-border-radius: 4px
+  ha-control-slider-border-radius: 4px
+  control-select-thickness: 40px
+  control-button-border-radius: 4px
+  ha-more-info-control-border-radius: 4px
+  # Interrupteurs
+  switch-checked-color: var(--nf-mint)
+  switch-checked-button-color: var(--nf-mint)
+  switch-checked-track-color: "#3f6b5b"
+  switch-unchecked-color: var(--nf-muted)
+  switch-unchecked-button-color: var(--nf-muted)
+  switch-unchecked-track-color: var(--nf-panel2)
+  # Curseurs
+  slider-color: var(--nf-mint)
+  slider-secondary-color: var(--nf-lavender)
+  slider-track-color: var(--nf-panel2)
+  slider-bar-color: var(--nf-panel2)
+  paper-slider-knob-color: var(--nf-mint)
+  paper-slider-active-color: var(--nf-mint)
+  paper-slider-container-color: var(--nf-panel2)
+  paper-slider-pin-color: var(--nf-mint)
+  # Infobulles / toasts
+  ha-tooltip-background-color: var(--nf-panel2)
+  ha-tooltip-text-color: var(--nf-text)
+  ha-tooltip-border-radius: 4px
+  mdc-snackbar-container-color: var(--nf-panel2)
+  mdc-snackbar-ink-color: var(--nf-text)
+
+  # ═══ 9. Couleurs sémantiques & codes d'état (pastels) ═════════════════════
+  success-color: var(--nf-mint)
+  warning-color: var(--nf-peach)
+  error-color: var(--nf-rose)
+  info-color: var(--nf-blue)
+  # Palette nommée utilisée par les cartes Tile/Mushroom/badges → version pastel
+  red-color: "#e59a9a"
+  pink-color: "#e8a9c4"
+  purple-color: "#b7aee0"
+  deep-purple-color: "#a99fd6"
+  indigo-color: "#9fa9d8"
+  blue-color: "#a6c4de"
+  light-blue-color: "#a9d2e6"
+  cyan-color: "#9fd3d8"
+  teal-color: "#93cdbf"
+  green-color: "#9fd8c3"
+  light-green-color: "#b6dcae"
+  lime-color: "#cfe0a4"
+  yellow-color: "#ecd9a0"
+  amber-color: "#f0cd9a"
+  orange-color: "#f0c0a4"
+  deep-orange-color: "#eeaf98"
+  brown-color: "#c8ad9b"
+  grey-color: "#a0a9b8"
+  blue-grey-color: "#9aa8b8"
+  light-grey-color: "#394150"
+  dark-grey-color: "#2b313c"
+  disabled-color-state: "#6b7485"
+  # Icônes et états génériques
+  state-icon-color: var(--nf-muted)
+  state-icon-active-color: var(--nf-peach)
+  state-icon-unavailable-color: var(--nf-faint)
+  state-active-color: var(--nf-mint)
+  state-inactive-color: var(--nf-faint)
+  state-unavailable-color: var(--nf-faint)
+  paper-item-icon-color: var(--nf-muted)
+  paper-item-icon-active-color: var(--nf-peach)
+  # Par domaine
+  state-light-active-color: var(--nf-peach)
+  state-switch-active-color: var(--nf-mint)
+  state-input_boolean-active-color: var(--nf-mint)
+  state-fan-active-color: var(--nf-blue)
+  state-media_player-active-color: var(--nf-blue)
+  state-vacuum-active-color: var(--nf-lavender)
+  state-update-active-color: var(--nf-peach)
+  state-person-home-color: var(--nf-mint)
+  state-person-not_home-color: var(--nf-muted)
+  state-device_tracker-home-color: var(--nf-mint)
+  state-binary_sensor-active-color: var(--nf-peach)
+  state-binary_sensor-motion-on-color: var(--nf-peach)
+  state-binary_sensor-connectivity-on-color: var(--nf-mint)
+  state-binary_sensor-problem-on-color: var(--nf-rose)
+  state-sensor-battery-high-color: var(--nf-mint)
+  state-sensor-battery-medium-color: var(--nf-peach)
+  state-sensor-battery-low-color: var(--nf-rose)
+  # Alarme (affichage uniquement)
+  state-alarm_control_panel-disarmed-color: var(--nf-mint)
+  state-alarm_control_panel-armed_home-color: var(--nf-blue)
+  state-alarm_control_panel-armed_away-color: var(--nf-lavender)
+  state-alarm_control_panel-armed_night-color: var(--nf-lavender)
+  state-alarm_control_panel-armed_vacation-color: var(--nf-lavender)
+  state-alarm_control_panel-armed_custom_bypass-color: var(--nf-lavender)
+  state-alarm_control_panel-arming-color: var(--nf-peach)
+  state-alarm_control_panel-pending-color: var(--nf-peach)
+  state-alarm_control_panel-triggered-color: var(--nf-rose)
+  # Historique / logbook
+  history-unavailable-color: "#2b313c"
+  history-unknown-color: "#394150"
+  # Énergie
+  energy-grid-consumption-color: var(--nf-blue)
+  energy-solar-color: var(--nf-peach)
+  energy-battery-in-color: var(--nf-mint)
+  energy-battery-out-color: var(--nf-lavender)
+  # Badges classiques
+  label-badge-background-color: var(--nf-panel)
+  label-badge-text-color: var(--nf-text)
+  label-badge-red: var(--nf-rose)
+  label-badge-green: var(--nf-mint)
+  label-badge-blue: var(--nf-blue)
+  label-badge-yellow: var(--nf-peach)
+  label-badge-grey: var(--nf-muted)
+
+  # ═══ 10. Mushroom ═════════════════════════════════════════════════════════
+  mush-rgb-primary: 159, 216, 195
+  mush-rgb-accent: 183, 174, 224
+  mush-rgb-red: 229, 154, 154
+  mush-rgb-pink: 232, 169, 196
+  mush-rgb-purple: 183, 174, 224
+  mush-rgb-deep-purple: 169, 159, 214
+  mush-rgb-indigo: 159, 169, 216
+  mush-rgb-blue: 166, 196, 222
+  mush-rgb-light-blue: 169, 210, 230
+  mush-rgb-cyan: 159, 211, 216
+  mush-rgb-teal: 147, 205, 191
+  mush-rgb-green: 159, 216, 195
+  mush-rgb-light-green: 182, 220, 174
+  mush-rgb-lime: 207, 224, 164
+  mush-rgb-yellow: 236, 217, 160
+  mush-rgb-amber: 240, 205, 154
+  mush-rgb-orange: 240, 192, 164
+  mush-rgb-deep-orange: 238, 175, 152
+  mush-rgb-brown: 200, 173, 155
+  mush-rgb-grey: 160, 169, 184
+  mush-rgb-blue-grey: 154, 168, 184
+  mush-rgb-black: 24, 28, 35
+  mush-rgb-white: 228, 232, 238
+  mush-rgb-disabled: 107, 116, 133
+  mush-rgb-state-light: 240, 192, 164
+  mush-rgb-state-switch: 159, 216, 195
+  mush-rgb-state-vacuum: 183, 174, 224
+  mush-rgb-state-alarm-disarmed: 159, 216, 195
+  mush-rgb-state-alarm-armed: 183, 174, 224
+  mush-rgb-state-alarm-triggered: 229, 154, 154
+  mush-rgb-state-person-home: 159, 216, 195
+  mush-rgb-state-person-not-home: 160, 169, 184
+  mush-card-primary-font-size: 14px
+  mush-card-secondary-font-size: 12px
+  mush-card-primary-font-weight: "500"
+  mush-card-secondary-font-weight: "400"
+  mush-card-primary-color: var(--nf-text)
+  mush-card-secondary-color: var(--nf-muted)
+  mush-control-border-radius: 4px
+  mush-control-height: 36px
+  mush-icon-border-radius: 4px
+  mush-icon-size: 36px
+  mush-badge-border-radius: 4px
+  mush-chip-border-radius: 4px
+  mush-chip-background: var(--nf-panel)
+  mush-chip-height: 32px
+  mush-chip-spacing: 8px
+  mush-button-height: 36px
+  mush-spacing: 8px
+  mush-title-font-size: 20px
+  mush-title-font-weight: "600"
+  mush-subtitle-color: var(--nf-muted)
+
+  # ═══ 11. card-mod — styles de l'interface (hors cartes) ═══════════════════
+  # Requis pour que card-mod applique les sections ci-dessous :
+  card-mod-theme: nuit_flat
+
+  # 11.a En-tête des dashboards (hui-root) : barre plate, filet bas, onglets menthe
+  card-mod-root-yaml: |
+    .: |
+      .header, app-header, .toolbar {
+        background: var(--nf-bg) !important;
+        box-shadow: none !important;
+        border-bottom: 1px solid var(--nf-line);
+      }
+      .main-title {
+        font-family: var(--primary-font-family);
+        font-weight: 600;
+        letter-spacing: -0.01em;
+      }
+      /* Onglets de vues : 2025+ (ha-tab-group) et anciens (paper-tabs) */
+      ha-tab-group, sl-tab-group, paper-tabs {
+        --ha-tab-indicator-color: var(--nf-mint);
+        --paper-tabs-selection-bar-color: var(--nf-mint);
+        --track-color: transparent;
+      }
+      ha-tab-group-tab, sl-tab, paper-tab {
+        font-size: 13px;
+        text-transform: none;
+        color: var(--nf-muted);
+      }
+      ha-tab-group-tab[active], sl-tab[active], paper-tab.iron-selected {
+        color: var(--nf-mint);
+      }
+      /* Mode édition : fond discret au lieu du bleu vif */
+      .edit-mode .header, .edit-mode app-header {
+        background: #2a2f3a !important;
+      }
+
+  # 11.b Barre latérale : filet droit, élément actif = fond panel2 + liseré menthe
+  card-mod-sidebar-yaml: |
+    .: |
+      :host {
+        border-right: 1px solid var(--nf-line) !important;
+        background: var(--nf-bg) !important;
+      }
+      .menu {
+        border-bottom: 1px solid var(--nf-line) !important;
+        font-family: var(--primary-font-family);
+      }
+      .title { font-weight: 600; letter-spacing: -0.01em; }
+      ha-md-list-item, a[role="option"], paper-icon-item {
+        border-radius: 4px !important;
+        margin: 1px 8px;
+        --md-list-item-label-text-font: var(--primary-font-family);
+      }
+      ha-md-list-item.selected, a.iron-selected paper-icon-item, a[aria-selected="true"] {
+        background: var(--nf-panel2) !important;
+        box-shadow: inset 3px 0 0 var(--nf-mint);
+      }
+      ha-md-list-item:hover, paper-icon-item:hover { background: var(--nf-panel); }
+      .notifications-container, .profile { border-top: 1px solid var(--nf-line); }
+      .badge, .notification-badge {
+        border-radius: 4px !important;
+        background: var(--nf-lavender) !important;
+        color: #181c23 !important;
+      }
+
+  # 11.c Fenêtres de détail (more-info) : surface panel, filet, rayon 4, pas d'ombre
+  card-mod-more-info-yaml: |
+    .: |
+      ha-dialog, ha-md-dialog, ha-wa-dialog, ha-adaptive-dialog {
+        --ha-dialog-border-radius: 4px;
+        --mdc-dialog-scrim-color: rgba(10, 12, 16, 0.72);
+        --mdc-theme-surface: var(--nf-panel);
+        --dialog-backdrop-filter: none;
+        --dialog-box-shadow: none;
+        --ha-dialog-surface-background: var(--nf-panel);
+      }
+      ha-dialog-header, .heading {
+        border-bottom: 1px solid var(--nf-line);
+        font-family: var(--primary-font-family);
+      }
+    ha-dialog$: |
+      .mdc-dialog__surface {
+        border: 1px solid var(--nf-line);
+        border-radius: 4px !important;
+        box-shadow: none !important;
+      }
+      .mdc-dialog__title { font-weight: 600; }
+
+  # 11.d Écrans de configuration (Paramètres) : limité au conteneur — voir README
+  card-mod-config-yaml: |
+    .: |
+      :host {
+        --ha-card-border-radius: 4px;
+        --ha-card-box-shadow: none;
+        background: var(--nf-bg);
+      }
+
+  # 11.e Toutes les cartes : filet et rayon garantis même si une carte force les siens
+  card-mod-card: |
+    ha-card {
+      border-radius: 4px;
+      box-shadow: none;
+    }

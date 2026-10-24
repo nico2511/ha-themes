@@ -1,0 +1,13 @@
+# ─────────────────────────────────────────────────────────────────────────────
+#  Couleur de courbe d'une carte history-graph / statistics-graph alignée sur
+#  la palette du thème (ici le bleu Nuit flat).               ✔ utilisé (v3)
+#  Prérequis : card-mod. Remplacer var(--nf-blue) par une autre couleur au besoin.
+# ─────────────────────────────────────────────────────────────────────────────
+type: history-graph
+hours_to_show: 24
+entities:
+  - entity: sensor.ma_puissance
+    name: Puissance
+card_mod:
+  style: |
+    ha-card { --graph-color-1: var(--nf-blue); }

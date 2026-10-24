@@ -1,0 +1,70 @@
+# Modèles button-card du dashboard MediaTracker v5 (style « console sombre »).
+#  - mt_bouton  : petit bouton plat 34 px, grisé si le NAS (binary_sensor.nas) est éteint
+#  - mt_affiche : affiche compacte 76×132 px (variante v5, différente de celle de la v7)
+# À coller sous la clé button_card_templates de la configuration brute du dashboard.
+button_card_templates:
+  mt_bouton:
+    show_name: true
+    show_icon: true
+    size: 16px
+    variables:
+      nas_requis: true
+    triggers_update:
+    - binary_sensor.nas
+    styles:
+      card:
+      - height: 34px
+      - padding: 0 10px
+      - border-radius: 10px
+      - box-shadow: none
+      - background: rgba(255,255,255,0.06)
+      - opacity: '[[[ return (variables.nas_requis && states[''binary_sensor.nas''] && states[''binary_sensor.nas''].state !== ''on'') ? 0.45 : 1 ]]]'
+      name:
+      - font-size: 12px
+      - font-weight: '500'
+      - color: '#e8e8ee'
+      icon:
+      - width: 16px
+      - color: '#d0d0d6'
+      grid:
+      - grid-template-areas: '"i n"'
+      - grid-template-columns: 16px 1fr
+      - column-gap: 6px
+      - align-items: center
+      - justify-items: center
+  mt_affiche:
+    icon: mdi:image-outline
+    show_entity_picture: true
+    show_icon: true
+    show_name: false
+    show_state: true
+    entity_picture: '[[[ const picture = String((entity.attributes && entity.attributes.entity_picture) || ''''); return /^https?:\/\//.test(picture) ? picture : ''''; ]]]'
+    tap_action:
+      action: url
+      url_path: '[[[ return entity.attributes.tmdb_url || '''' ]]]'
+    styles:
+      card:
+      - width: 76px
+      - height: 132px
+      - padding: 4px
+      - box-shadow: none
+      - background: '#2a2a2e'
+      - border-radius: 10px
+      - border: '[[[ return String(entity.state).endsWith(''· suivi'') ? ''1px solid rgba(134,239,172,0.55)'' : ''1px solid transparent'' ]]]'
+      - display: '[[[ const s = entity ? String(entity.state) : ''''; return [''—'',''unknown'',''unavailable'',''''].includes(s) ? ''none'' : ''block'' ]]]'
+      entity_picture:
+      - width: 68px
+      - height: 100px
+      - object-fit: cover
+      - border-radius: 8px
+      - justify-self: center
+      icon:
+      - width: 28px
+      - color: '#8b8b93'
+      state:
+      - font-size: 10px
+      - white-space: normal
+      - overflow: hidden
+      - max-height: 26px
+      - line-height: 13px
+      - color: '[[[ return String(entity.state).endsWith(''· suivi'') ? ''#86efac'' : ''var(--primary-text-color)'' ]]]'

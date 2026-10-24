@@ -1,0 +1,14 @@
+# Ressource à déclarer (Paramètres > Tableaux de bord > Ressources) :
+#   URL /local/mediatracker/mt-console-card.js  (type : module JavaScript)
+#   (copier www/mediatracker/mt-console-card.js dans /config/www/mediatracker/)
+# Aucun secret ici : la carte n'appelle que des services HA.
+title: MediaTracker
+views:
+  - title: Console
+    path: console
+    cards:
+      - type: custom:mt-console-card
+        title: Console MediaTracker
+        file_entity: sensor.mediatracker_file
+        statut_entity: sensor.mediatracker_statut
+        message_entity: input_text.mt_dernier_message

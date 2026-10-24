@@ -1,0 +1,64 @@
+# ─────────────────────────────────────────────────────────────────────────────
+#  Champs de saisie sombres — HA 2026 (card-mod)            ✔ testé (HA 2026.10)
+#
+#  Problème : en mode sombre, depuis le frontend 2026, les champs input_text /
+#  input_select (cartes entities et tile + select-options) peuvent rester avec
+#  un fond blanc et un texte gris clair : illisible.
+#  Solution : redéfinir, au niveau de la carte, les variables des champs :
+#   - jetons HA 2026 (--ha-color-form-*, --ha-color-border-neutral-*, --ha-color-text-*)
+#   - composants Web Awesome (--wa-form-control-*)
+#   - anciennes variables (--input-*, --mdc-*) pour les versions précédentes.
+#  Usage : ajouter le bloc card_mod ci-dessous à la carte qui contient le champ.
+#  Alternative globale (non testée) : le thème « flaminet » reprend une partie
+#  de ces variables pour tout HA.
+#  Prérequis : card-mod.
+# ─────────────────────────────────────────────────────────────────────────────
+
+# Exemple 1 — carte entities avec un input_text
+type: entities
+entities:
+  - entity: input_text.mon_champ
+    name: Mon champ
+card_mod:
+  style: |-
+    ha-card {
+      --ha-color-form-background: #24252b;
+      --ha-color-form-background-hover: #2b2c33;
+      --ha-color-form-background-disabled: #1d1e23;
+      --ha-color-border-neutral-quiet: rgba(255,255,255,0.10);
+      --ha-color-border-neutral-normal: rgba(255,255,255,0.18);
+      --ha-color-border-neutral-loud: rgba(255,255,255,0.30);
+      --ha-color-text-primary: #e6e6ea;
+      --ha-color-text-secondary: #9a9aa3;
+      --secondary-text-color: #9a9aa3;
+      --wa-form-control-background-color: #24252b;
+      --wa-form-control-value-color: #e6e6ea;
+      --wa-form-control-label-color: #9a9aa3;
+      --wa-color-text-normal: #e6e6ea;
+      --input-fill-color: #24252b;
+      --input-ink-color: #e6e6ea;
+      --input-label-ink-color: #9a9aa3;
+      --input-idle-line-color: rgba(255,255,255,0.12);
+      --input-hover-line-color: rgba(255,255,255,0.25);
+      --input-dropdown-icon-color: #9a9aa3;
+      --mdc-text-field-fill-color: #24252b;
+      --mdc-text-field-ink-color: #e6e6ea;
+      --mdc-text-field-label-ink-color: #9a9aa3;
+      --mdc-text-field-idle-line-color: rgba(255,255,255,0.12);
+      --mdc-select-fill-color: #24252b;
+      --mdc-select-ink-color: #e6e6ea;
+      --mdc-select-label-ink-color: #9a9aa3;
+      --mdc-select-dropdown-icon-color: #9a9aa3;
+      --mdc-theme-surface: #24252b;
+      --primary-text-color: #e6e6ea;
+    }
+
+# Exemple 2 — tile avec la fonction select-options : coller le même bloc
+# card_mod sous la carte, par exemple :
+#   - type: tile
+#     entity: input_select.mon_choix
+#     features:
+#       - type: select-options
+#     card_mod:
+#       style: |-
+#         ha-card { ...mêmes variables... }

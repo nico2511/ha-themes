@@ -1,0 +1,31 @@
+# ─────────────────────────────────────────────────────────────────────────────
+#  Titre de section « Nuit flat » : petites capitales grises + filet horizontal
+#  qui court derrière le texte (pseudo-élément ::after).      ✔ utilisé (v3)
+#  Prérequis : button-card, card-mod, thème nuit_flat (variables --nf-*).
+#  Équivaut au modèle nf_titre de button-card-templates/nuit-flat.yaml.
+# ─────────────────────────────────────────────────────────────────────────────
+type: custom:button-card
+name: Ma section
+show_icon: false
+show_state: false
+tap_action: { action: none }
+hold_action: { action: none }
+styles:
+  card:
+    - background: none
+    - border: none
+    - box-shadow: none
+    - padding: 14px 2px 2px
+  name:
+    - font-size: 12px
+    - font-weight: 600
+    - letter-spacing: 0.08em
+    - text-transform: uppercase
+    - color: var(--nf-muted)
+    - justify-self: start
+  grid:
+    - grid-template-areas: '"n"'
+card_mod:
+  style: |
+    ha-card::after { content: ""; position: absolute; left: 0; right: 0; bottom: 6px; height: 1px; background: var(--nf-line); z-index: -1; }
+    #name { background: var(--nf-bg); padding-right: 8px; }
