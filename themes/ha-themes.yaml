@@ -1,17 +1,17 @@
 # ─────────────────────────────────────────────────────────────────────────────
 #  FICHIER GÉNÉRÉ par outils/assembler-themes.py — ne pas éditer à la main.
 #  Contient tous les thèmes du dépôt (HACS n'installe qu'un fichier).
-#  Sources : themes-par-style/flaminet.yaml, themes-par-style/nuit-flat.yaml
+#  Sources : flaminet/flaminet.yaml, nuit-flat/nuit-flat.yaml
 # ─────────────────────────────────────────────────────────────────────────────
 
-# ════════ flaminet.yaml ════════
+# ════════ flaminet/flaminet.yaml ════════
 # ─────────────────────────────────────────────────────────────────────────────
 #  Thème « Flaminet » — style natif de Home Assistant (couleurs par défaut)
 #  + correctif des champs de saisie sombres pour le frontend HA 2026.
 #
 #  ⚠ NOUVEAU, NON TESTÉ tel quel en thème. Les valeurs ci-dessous viennent du
-#  card_mod réellement appliqué et validé sur le dashboard MediaTracker v7
-#  (cartes « ID TMDB » et « Type », voir snippets/champs-sombres-ha2026.yaml).
+#  card_mod réellement appliqué et validé sur deux cartes de champs (texte et
+#  liste déroulante), voir commun/snippets/champs-sombres-ha2026.yaml.
 #  Seule la portée change : ici les variables s'appliquent à tout HA en mode
 #  sombre, au lieu de deux cartes.
 #
@@ -55,7 +55,7 @@ flaminet:
       # Si les contours des champs restent trop pâles, utiliser le snippet
       # card-mod complet sur la carte concernée.
 
-# ════════ nuit-flat.yaml ════════
+# ════════ nuit-flat/nuit-flat.yaml ════════
 # ─────────────────────────────────────────────────────────────────────────────
 #  Thème « Nuit flat » v3 — pour TOUT Home Assistant (pas seulement le dashboard)
 #  Sombre, plat, touches pastel. Fond #181c23, rayon 4 px, police Inter.

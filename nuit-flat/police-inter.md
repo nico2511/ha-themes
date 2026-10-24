@@ -21,10 +21,10 @@ n'est fourni dans ce dépôt : télécharge-la depuis la source officielle.
    /config/www/fonts/Inter-LICENSE.txt
    ```
 
-3. Copie `www/nuit-flat/inter-local.js` dans `/config/www/nuit-flat/inter-local.js`.
+3. Copie `nuit-flat/www/nuit-flat/inter-local.js` (dossier de ce dépôt) dans `/config/www/nuit-flat/inter-local.js`.
    Ce script déclare les `@font-face` qui pointent vers `/local/fonts/…`.
 4. Ajoute `/local/nuit-flat/inter-local.js` dans `frontend: extra_module_url:`
-   (voir `snippets/configuration-frontend.yaml`), puis redémarre Home Assistant.
+   (voir [`commun/snippets/configuration-frontend.yaml`](../commun/snippets/configuration-frontend.yaml)), puis redémarre Home Assistant.
 
 Sans la police, le thème reste utilisable : il retombe sur les polices système
 (`system-ui`, `Segoe UI`, `Roboto`…).

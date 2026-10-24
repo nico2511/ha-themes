@@ -1,7 +1,7 @@
 # ─────────────────────────────────────────────────────────────────────────────
 #  Dashboard « Maison » — style Nuit flat v3 (exemple anonymisé)
 #  Prérequis HACS (frontend) : button-card, Mushroom, card-mod, auto-entities,
-#  layout-card. Thème : nuit_flat (themes/ha-themes.yaml).
+#  layout-card. Thème : nuit_flat (nuit-flat/nuit-flat.yaml).
 #  Installation : Paramètres → Tableaux de bord → Ajouter → « Nouveau tableau
 #  de bord vide » → ⋮ → Éditeur de configuration brute → coller ce fichier.
 #  ⚠ Alarme / caméras : tuiles en LECTURE (tap = fenêtre de détail), aucun

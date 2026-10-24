@@ -1,8 +1,10 @@
 # ─────────────────────────────────────────────────────────────────────────────
-#  Carte « console sombre » (style MediaTracker v5)           ✔ utilisé en v5
-#  Regroupe plusieurs cartes dans un cadre #161618, coins 16 px, liseré discret.
+#  Cadre sombre autour de plusieurs cartes (card-mod)        ✔ utilisé
+#  Regroupe plusieurs cartes dans un seul cadre #161618 : coins 16 px, liseré
+#  discret, sans ombre. Les cartes internes sont rendues transparentes, de
+#  sorte qu'il ne reste qu'un cadre. Fonctionne avec n'importe quel thème sombre.
 #  Prérequis : card-mod (fournit custom:mod-card), Mushroom pour le titre.
-#  Les cartes internes sont rendues transparentes pour ne garder qu'un cadre.
+#  Adapter la couleur, l'arrondi et les cartes internes au besoin.
 # ─────────────────────────────────────────────────────────────────────────────
 type: custom:mod-card
 card_mod:

@@ -3,8 +3,8 @@
 #  + correctif des champs de saisie sombres pour le frontend HA 2026.
 #
 #  ⚠ NOUVEAU, NON TESTÉ tel quel en thème. Les valeurs ci-dessous viennent du
-#  card_mod réellement appliqué et validé sur le dashboard MediaTracker v7
-#  (cartes « ID TMDB » et « Type », voir snippets/champs-sombres-ha2026.yaml).
+#  card_mod réellement appliqué et validé sur deux cartes de champs (texte et
+#  liste déroulante), voir commun/snippets/champs-sombres-ha2026.yaml.
 #  Seule la portée change : ici les variables s'appliquent à tout HA en mode
 #  sombre, au lieu de deux cartes.
 #

@@ -2,7 +2,7 @@
 #  Titre de section « Nuit flat » : petites capitales grises + filet horizontal
 #  qui court derrière le texte (pseudo-élément ::after).      ✔ utilisé (v3)
 #  Prérequis : button-card, card-mod, thème nuit_flat (variables --nf-*).
-#  Équivaut au modèle nf_titre de button-card-templates/nuit-flat.yaml.
+#  Équivaut au modèle nf_titre de nuit-flat/button-card-templates/nuit-flat.yaml.
 # ─────────────────────────────────────────────────────────────────────────────
 type: custom:button-card
 name: Ma section
