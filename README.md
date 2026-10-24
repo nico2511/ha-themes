@@ -47,6 +47,7 @@ dashboards/                    dashboards d'exemple (configuration brute)
 snippets/                      extraits card-mod et configuration.yaml
 docs/                          captures + note sur la police Inter
 outils/assembler-themes.py     régénère themes/ha-themes.yaml
+CHANGELOG.md                   historique des versions
 ```
 
 ---
@@ -147,6 +148,7 @@ Thème sombre et plat qui s'applique à **tout HA** :
 | Fenêtres de détail | `ha-dialog-*` + `card-mod-more-info-yaml` |
 | Codes d'état pastel (alarme : désarmée menthe, armée lavande, déclenchée rose) | `state-*-color` + couleurs nommées |
 | Mushroom | `mush-rgb-*` |
+| Champs de saisie (fond `#2b313c`, texte clair, filets `#394150`) | `input-*`, `mdc-text-field-*`, `mdc-select-*` + jetons HA 2026 `ha-color-form-*`, `ha-color-border-neutral-*`, `wa-form-control-*` |
 
 - **Modèles** (`button-card-templates/nuit-flat.yaml`) :
   - `nf_base` : tuile ;
@@ -156,6 +158,8 @@ Thème sombre et plat qui s'applique à **tout HA** :
   - `nf_valeur` : grande valeur ;
   - `nf_titre` : titre de section avec filet.
 - **Dashboard** : `dashboards/nuit-flat-maison.yaml`. Il repose sur une grille `custom:grid-layout` qui s'adapte au bureau et au mobile. Les tuiles d'alarme et de caméras sont en **lecture seule**.
+
+> ⚠ **v1.1.0 : champs sombres HA 2026 ajoutés, non testés dans HA.** Les variables `ha-color-form-*`, `ha-color-border-neutral-*` et `wa-form-control-*` suivent le modèle du thème `flaminet`, avec les couleurs Nuit flat. Si un champ reste clair, utilise [snippets/champs-sombres-ha2026.yaml](snippets/champs-sombres-ha2026.yaml) (testé).
 
 **Limites :**
 - Écrans d'administration : couleurs, police et arrondis sont repris. En revanche, les sous-pages à shadow DOM profond ne sont pas toutes atteintes.

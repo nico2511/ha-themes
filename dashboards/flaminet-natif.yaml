@@ -481,7 +481,7 @@ views:
       entity: switch.prise_aspirateur
       grid_options:
         columns: 6
-      name: Roborock
+      name: Aspirateur
       icon: mdi:robot-vacuum
       features:
       - type: toggle

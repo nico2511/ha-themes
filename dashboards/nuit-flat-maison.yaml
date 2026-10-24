@@ -315,7 +315,7 @@ views:
             - entity_id: switch.switch_imprimante3d
             - entity_id: switch.switch_imprimante_laser
             - entity_id: switch.prise_aspirateur
-              options: { name: Roborock }
+              options: { name: Aspirateur }
           exclude:
             - entity_id: "*camera*"
             - entity_id: switch.garage_prise_serveur
@@ -361,14 +361,14 @@ views:
           style: |
             ha-card { --graph-color-1: var(--nf-blue); }
 
-      # ── Roborock ─────────────────────────────────────────────────────────
+      # ── Aspirateur ─────────────────────────────────────────────────────────
       - type: custom:button-card
         template: nf_titre
-        name: Roborock Q7 L5+
+        name: Aspirateur
         view_layout: { grid-column: 1 / -1 }
       - type: custom:mushroom-vacuum-card
         entity: vacuum.aspirateur
-        name: Roborock
+        name: Aspirateur
         icon_animation: true
         commands: [start_pause, stop, return_home, locate]
         view_layout: { grid-column: span 2 }
@@ -387,8 +387,11 @@ views:
         options:
           type: custom:button-card
           template: nf_valeur
+          # À ADAPTER : remplace « Aspirateur » par le nom de ton appareil tel qu'il
+          # apparaît au début du nom des capteurs (friendly_name), pour ne garder que
+          # la partie utile (ex. « Filtre », « Brosse principale »).
           name: >
-            [[[ return entity.attributes.friendly_name.replace('Roborock Q7 L5+ ','')
+            [[[ return entity.attributes.friendly_name.replace('Aspirateur ','')
                  .replace('Temps restant ','').replace('Durée de vie restante de la ','') ]]]
           state_display: "[[[ return Number(entity.state).toFixed(0) + ' h' ]]]"
           styles:

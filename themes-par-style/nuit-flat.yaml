@@ -185,6 +185,21 @@ nuit_flat:
   mdc-select-label-ink-color: var(--nf-muted)
   mdc-select-idle-line-color: var(--nf-line)
   mdc-select-dropdown-icon-color: var(--nf-muted)
+  # Champs — jetons du design system HA 2026 (même modèle que flaminet.yaml)
+  # ⚠ Ajoutés en v1.1.0, NON TESTÉS dans HA.
+  ha-color-form-background: var(--nf-panel2)
+  ha-color-form-background-hover: "#323946"
+  ha-color-form-background-disabled: var(--nf-panel)
+  ha-color-border-neutral-quiet: var(--nf-line)
+  ha-color-border-neutral-normal: var(--nf-line-hover)
+  ha-color-border-neutral-loud: var(--nf-faint)
+  # Champs — composants Web Awesome (wa-*) utilisés par HA 2026
+  wa-form-control-background-color: var(--nf-panel2)
+  wa-form-control-value-color: var(--nf-text)
+  wa-form-control-label-color: var(--nf-muted)
+  wa-form-control-placeholder-color: var(--nf-faint)
+  wa-form-control-border-color: var(--nf-line)
+  wa-form-control-activated-color: var(--nf-mint)
   mdc-menu-item-height: 40px
   mdc-list-vertical-padding: 4px
   ha-button-border-radius: 4px
