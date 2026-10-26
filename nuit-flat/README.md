@@ -59,7 +59,7 @@ captures/                                   aperçus
    - Ne charge card-mod **qu'une fois**. S'il figure aussi dans Paramètres → Tableaux de bord → Ressources, retire-le de là. Sinon, le journal affiche des erreurs « already defined ».
 3. Police Inter : copie [`www/nuit-flat/inter-local.js`](www/nuit-flat/inter-local.js) dans `/config/www/nuit-flat/`, puis les polices dans `/config/www/fonts/` ([police-inter.md](police-inter.md)).
 4. Redémarre HA, puis choisis `nuit_flat` dans ton profil (mode sombre).
-5. Dashboard : colle [`dashboards/nuit-flat-maison.yaml`](dashboards/nuit-flat-maison.yaml) dans l'éditeur de configuration brute. Remplace ensuite les entités par les tiennes et adapte `/dashboard-maison`.
+5. Dashboard : colle [`dashboards/nuit-flat-maison.yaml`](dashboards/nuit-flat-maison.yaml) dans l'éditeur de configuration brute. Remplace ensuite les entités par les tiennes et adapte `/dashboard-exemple`.
 
 ## Détail du thème
 

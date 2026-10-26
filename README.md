@@ -85,7 +85,7 @@ Copie le thème voulu (`nuit-flat/nuit-flat.yaml` ou `flaminet/flaminet.yaml`) d
 2. Ouvre-le → ✎ → ⋮ → **Éditeur de configuration brute**.
 3. Colle le fichier `<style>/dashboards/…yaml` voulu, puis enregistre.
 4. Remplace les `entity_id` par les tiens.
-5. Adapte les `navigation_path` et `back_path` à l'URL de **ton** dashboard. Les exemples supposent `/dashboard-maison`.
+5. Adapte les `navigation_path` et `back_path` à l'URL de **ton** dashboard. Les exemples supposent `/dashboard-exemple`.
 
 Les modèles button-card sont déjà inclus dans chaque dashboard. Les fichiers `<style>/button-card-templates/` servent à les réutiliser ailleurs : colle-les sous la clé `button_card_templates:`.
 

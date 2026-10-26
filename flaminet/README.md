@@ -33,7 +33,7 @@ Snippet associé (commun) : [commun/snippets/champs-sombres-ha2026.yaml](../comm
 1. Copie [`flaminet.yaml`](flaminet.yaml) dans `/config/themes/`. Si tu as installé le dépôt par HACS, saute cette étape : `themes/ha-themes.yaml` contient déjà `flaminet`.
 2. `configuration.yaml` : `frontend: themes: !include_dir_merge_named themes` (voir [commun/snippets/configuration-frontend.yaml](../commun/snippets/configuration-frontend.yaml)). card-mod n'est pas nécessaire pour le thème.
 3. Redémarre HA (ou `frontend.reload_themes`), puis choisis `flaminet` dans ton profil (mode sombre).
-4. Dashboard : colle [`dashboards/flaminet-natif.yaml`](dashboards/flaminet-natif.yaml) dans l'éditeur de configuration brute. Remplace ensuite les entités par les tiennes et adapte `/dashboard-maison`.
+4. Dashboard : colle [`dashboards/flaminet-natif.yaml`](dashboards/flaminet-natif.yaml) dans l'éditeur de configuration brute. Remplace ensuite les entités par les tiennes et adapte `/dashboard-exemple`.
 
 ## Détail du thème
 

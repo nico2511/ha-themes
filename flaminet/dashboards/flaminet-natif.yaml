@@ -1,10 +1,9 @@
-# Dashboard « Flaminet natif » — exemple anonymisé et réduit du dashboard « 9.0 Flaminet ».
-# Style : uniquement des cartes natives HA (sections, heading, tile, shortcut, markdown),
-# couleurs nommées de HA, thème par défaut (ou « flaminet ») en mode sombre.
-# Aucune carte HACS requise. URL supposée : /dashboard-maison (adapter back_path et navigation_path).
+# Dashboard « Flaminet natif » — exemple anonymisé (cartes natives HA uniquement).
+# Style : sections, heading, tile, shortcut, markdown ; couleurs nommées HA ; thème « flaminet » en mode sombre.
+# Aucune carte HACS requise. Adapte back_path et navigation_path à l'URL de ton dashboard.
 # Vues gardées : Maison, Lumières, Baie serveur, Prises, Système (caméras, alarme détaillée,
 # 3D, aspirateur, pièces et média retirés de l'exemple). Entity_id génériques à remplacer.
-# Note : script.notify_maison est un script perso (badge « Notifier »), à remplacer ou retirer.
+# Note : script.notification_exemple est un script d'exemple (badge « Notifier »), à remplacer ou retirer.
 title: Maison
 views:
 - title: Maison
@@ -43,7 +42,7 @@ views:
     icon: mdi:bell-ring
     tap_action:
       action: perform-action
-      perform_action: script.notify_maison
+      perform_action: script.notification_exemple
       data:
         title: Test notification
         message: Notification de test.
@@ -57,10 +56,10 @@ views:
       icon: mdi:home
       badges:
       - type: entity
-        entity: binary_sensor.pc_bureau
+        entity: binary_sensor.ordinateur_bureau
         show_state: true
       - type: entity
-        entity: binary_sensor.nas
+        entity: binary_sensor.stockage_reseau
         show_state: true
     - type: tile
       entity: weather.forecast_maison
@@ -109,7 +108,7 @@ views:
       - type: toggle
       color: red
     - type: tile
-      entity: switch.switch_bureau_pc
+      entity: switch.prise_bureau
       grid_options:
         columns: 6
       name: Prise PC
@@ -117,7 +116,7 @@ views:
       features:
       - type: toggle
     - type: tile
-      entity: binary_sensor.pc_bureau
+      entity: binary_sensor.ordinateur_bureau
       grid_options:
         columns: 6
       name: PC bureau
@@ -131,19 +130,19 @@ views:
       features:
       - type: toggle
     - type: tile
-      entity: binary_sensor.serveur
+      entity: binary_sensor.serveur_reseau
       grid_options:
         columns: 6
       name: Serveur
       icon: mdi:server
     - type: tile
-      entity: binary_sensor.nas
+      entity: binary_sensor.stockage_reseau
       grid_options:
         columns: 6
       name: NAS
       icon: mdi:nas
     - type: tile
-      entity: switch.switch_chambre_tv
+      entity: switch.prise_chambre
       grid_options:
         columns: 6
       name: TV chambre
@@ -151,7 +150,7 @@ views:
       features:
       - type: toggle
     - type: tile
-      entity: switch.switch_meuble_tele
+      entity: switch.prise_salon
       grid_options:
         columns: 6
       name: Meuble télé
@@ -174,7 +173,7 @@ views:
       color: amber
       tap_action:
         action: navigate
-        navigation_path: /dashboard-maison/lumieres
+        navigation_path: /dashboard-exemple/lumieres
     - type: shortcut
       text: Prises
       icon: mdi:power-socket-fr
@@ -184,7 +183,7 @@ views:
       color: teal
       tap_action:
         action: navigate
-        navigation_path: /dashboard-maison/prises
+        navigation_path: /dashboard-exemple/prises
     - type: shortcut
       text: Baie serveur
       icon: mdi:server
@@ -194,7 +193,7 @@ views:
       color: grey
       tap_action:
         action: navigate
-        navigation_path: /dashboard-maison/serveur
+        navigation_path: /dashboard-exemple/serveur
     - type: shortcut
       text: Système
       icon: mdi:cog
@@ -203,7 +202,7 @@ views:
         rows: 1
       tap_action:
         action: navigate
-        navigation_path: /dashboard-maison/systeme
+        navigation_path: /dashboard-exemple/systeme
     column_span: 2
     background: true
 - title: Lumières
@@ -212,7 +211,7 @@ views:
   icon: mdi:lightbulb-group
   max_columns: 2
   subview: true
-  back_path: /dashboard-maison/home
+  back_path: /dashboard-exemple/home
   sections:
   - type: grid
     cards:
@@ -263,7 +262,7 @@ views:
       features:
       - type: light-brightness
     - type: tile
-      entity: light.lumiere_chambre
+      entity: light.plafond_chambre
       grid_options:
         columns: 6
       name: Lumière chambre
@@ -277,7 +276,7 @@ views:
       features:
       - type: light-brightness
     - type: tile
-      entity: light.lumiere_chambre_enfant
+      entity: light.chambre_enfant
       grid_options:
         columns: 6
       name: Chambre enfant
@@ -305,14 +304,14 @@ views:
       features:
       - type: light-brightness
     - type: tile
-      entity: light.lumiere_garage
+      entity: light.plafond_garage
       grid_options:
         columns: 6
       name: Lumière garage
       features:
       - type: light-brightness
     - type: tile
-      entity: light.lumiere_cuisine
+      entity: light.cuisine
       grid_options:
         columns: 6
       name: Cuisine
@@ -326,7 +325,7 @@ views:
   icon: mdi:server
   max_columns: 2
   subview: true
-  back_path: /dashboard-maison/home
+  back_path: /dashboard-exemple/home
   sections:
   - type: grid
     cards:
@@ -336,14 +335,14 @@ views:
       icon: mdi:server
       badges:
       - type: entity
-        entity: binary_sensor.serveur
+        entity: binary_sensor.serveur_reseau
     - type: tile
-      entity: binary_sensor.serveur
+      entity: binary_sensor.serveur_reseau
       grid_options:
         columns: 6
       name: Ping serveur
     - type: tile
-      entity: sensor.garage_prise_serveur_consommation_actuelle
+      entity: sensor.prise_baie_puissance
       grid_options:
         columns: 6
       name: Puissance
@@ -352,7 +351,7 @@ views:
         min: 0
         max: 80
     - type: tile
-      entity: switch.garage_prise_serveur
+      entity: switch.prise_baie
       grid_options:
         columns: 12
       name: Prise serveur
@@ -371,27 +370,27 @@ views:
       heading_style: title
       icon: mdi:flash
     - type: tile
-      entity: sensor.garage_prise_serveur_consommation_d_aujourd_hui
+      entity: sensor.prise_baie_aujourd_hui
       grid_options:
         columns: 6
       name: Aujourd'hui
     - type: tile
-      entity: sensor.garage_prise_serveur_la_consommation_de_ce_mois_ci
+      entity: sensor.prise_baie_ce_mois
       grid_options:
         columns: 6
       name: Ce mois
     - type: tile
-      entity: sensor.garage_prise_serveur_consommation_totale
+      entity: sensor.prise_baie_total
       grid_options:
         columns: 6
       name: Total
     - type: tile
-      entity: sensor.garage_prise_serveur_tension
+      entity: sensor.prise_baie_tension
       grid_options:
         columns: 6
       name: Tension
     - type: tile
-      entity: sensor.garage_prise_serveur_courant
+      entity: sensor.prise_baie_courant
       grid_options:
         columns: 12
       name: Courant
@@ -402,7 +401,7 @@ views:
   icon: mdi:power-socket-fr
   max_columns: 2
   subview: true
-  back_path: /dashboard-maison/home
+  back_path: /dashboard-exemple/home
   sections:
   - type: grid
     cards:
@@ -411,7 +410,7 @@ views:
       heading_style: title
       icon: mdi:desk
     - type: tile
-      entity: switch.switch_bureau_pc
+      entity: switch.prise_bureau
       grid_options:
         columns: 6
       name: PC
@@ -419,12 +418,12 @@ views:
       features:
       - type: toggle
     - type: tile
-      entity: binary_sensor.pc_bureau
+      entity: binary_sensor.ordinateur_bureau
       grid_options:
         columns: 6
       name: PC en ligne
     - type: tile
-      entity: switch.switch_imprimante3d
+      entity: switch.prise_atelier_1
       grid_options:
         columns: 6
       name: Imprimante 3D
@@ -432,7 +431,7 @@ views:
       features:
       - type: toggle
     - type: tile
-      entity: switch.switch_imprimante_laser
+      entity: switch.prise_atelier_2
       grid_options:
         columns: 6
       name: Laser
@@ -447,7 +446,7 @@ views:
       heading_style: title
       icon: mdi:sofa
     - type: tile
-      entity: switch.switch_meuble_tele
+      entity: switch.prise_salon
       grid_options:
         columns: 6
       name: Meuble télé
@@ -455,7 +454,7 @@ views:
       features:
       - type: toggle
     - type: tile
-      entity: switch.switch_chambre_tv
+      entity: switch.prise_chambre
       grid_options:
         columns: 6
       name: TV chambre
@@ -470,7 +469,7 @@ views:
       heading_style: title
       icon: mdi:lan
     - type: tile
-      entity: switch.prise_nas
+      entity: switch.prise_stockage
       grid_options:
         columns: 6
       name: NAS
@@ -478,7 +477,7 @@ views:
       features:
       - type: toggle
     - type: tile
-      entity: switch.prise_aspirateur
+      entity: switch.prise_menage
       grid_options:
         columns: 6
       name: Aspirateur
@@ -486,7 +485,7 @@ views:
       features:
       - type: toggle
     - type: tile
-      entity: switch.switch_camera_bureau
+      entity: switch.prise_camera_salon
       grid_options:
         columns: 6
       name: Caméra bureau
@@ -494,7 +493,7 @@ views:
       features:
       - type: toggle
     - type: tile
-      entity: switch.switch_camera_grenier
+      entity: switch.prise_camera_exterieur
       grid_options:
         columns: 6
       name: Caméra extérieur
@@ -502,7 +501,7 @@ views:
       features:
       - type: toggle
     - type: tile
-      entity: switch.garage_prise_serveur
+      entity: switch.prise_baie
       grid_options:
         columns: 12
       name: Baie serveur
@@ -578,7 +577,7 @@ views:
       grid_options:
         columns: 6
     - type: tile
-      entity: update.deconz_update
+      entity: update.integration_exemple
       grid_options:
         columns: 6
     - type: heading
@@ -600,4 +599,4 @@ views:
         rows: 3
     background: true
   subview: true
-  back_path: /dashboard-maison/home
+  back_path: /dashboard-exemple/home
