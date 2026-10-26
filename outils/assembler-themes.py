@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Assemble les thèmes des dossiers par style en un seul fichier themes/ha-themes.yaml.
 
-Chaque style a son dossier à la racine du dépôt (nuit-flat/, flaminet/…) et
+Chaque style a son dossier à la racine du dépôt (nuit-flat/, …) et
 son thème dans <dossier>/<dossier>.yaml. HACS (catégorie Thème) ne gère
 qu'UN fichier dans themes/ : les thèmes sont donc édités dans leur dossier
 puis regroupés ici. Lancer depuis la racine du dépôt :

@@ -9,8 +9,8 @@
 #   - composants Web Awesome (--wa-form-control-*)
 #   - anciennes variables (--input-*, --mdc-*) pour les versions précédentes.
 #  Usage : ajouter le bloc card_mod ci-dessous à la carte qui contient le champ.
-#  Alternative globale (non testée) : le thème « flaminet » reprend une partie
-#  de ces variables pour tout HA.
+#  Alternative globale (non testée) : le thème nuit_flat reprend une partie
+#  de ces variables pour tout HA (voir nuit-flat/nuit-flat.yaml).
 #  Prérequis : card-mod.
 # ─────────────────────────────────────────────────────────────────────────────
 

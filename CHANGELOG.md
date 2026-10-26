@@ -4,10 +4,13 @@ Format inspiré de [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/), ver
 
 ## [1.2.1] — à publier
 
+### Supprimé
+- **Thème Flaminet** : dossier [`flaminet/`](flaminet/) retiré du dépôt (thème, dashboard d'exemple et captures). Seul **`nuit_flat`** reste dans `themes/ha-themes.yaml`.
+
 ### Modifié
-- Dashboards d'exemple [`flaminet-natif.yaml`](flaminet/dashboards/flaminet-natif.yaml) et [`nuit-flat-maison.yaml`](nuit-flat/dashboards/nuit-flat-maison.yaml) : `entity_id` et chemins de navigation remplacés par des noms neutres de démo (plus de noms évoquant l'installation d'origine).
-- En-tête du dashboard Flaminet : retrait des références internes « 9.0 Flaminet » et `/dashboard-maison`.
-- Légendes des captures PNG : chemin `themes-par-style/…` remplacé par `nuit-flat/` et `flaminet/`.
+- Dashboard d'exemple [`nuit-flat-maison.yaml`](nuit-flat/dashboards/nuit-flat-maison.yaml) : `entity_id` et chemins de navigation remplacés par des noms neutres de démo (plus de noms évoquant l'installation d'origine).
+- Légendes des captures PNG Nuit flat : chemin `themes-par-style/…` remplacé par `nuit-flat/nuit-flat.yaml`.
+- [README](README.md), [hacs.json](hacs.json) et docs associées : retrait des références au style Flaminet.
 
 ## [1.2.0]
 

@@ -79,7 +79,7 @@ captures/                                   aperçus
 | Mushroom | `mush-rgb-*` |
 | Champs de saisie (fond `#2b313c`, texte clair, filets `#394150`) | `input-*`, `mdc-text-field-*`, `mdc-select-*` + jetons HA 2026 `ha-color-form-*`, `ha-color-border-neutral-*`, `wa-form-control-*` |
 
-> ⚠ **v1.1.0 : champs sombres HA 2026 ajoutés, non testés dans HA.** Les variables `ha-color-form-*`, `ha-color-border-neutral-*` et `wa-form-control-*` suivent le modèle du thème `flaminet`, avec les couleurs Nuit flat. Si un champ reste clair, utilise [commun/snippets/champs-sombres-ha2026.yaml](../commun/snippets/champs-sombres-ha2026.yaml) (testé).
+> ⚠ **v1.1.0 : champs sombres HA 2026 ajoutés, non testés dans HA.** Les variables `ha-color-form-*`, `ha-color-border-neutral-*` et `wa-form-control-*` reprennent le modèle du snippet [commun/snippets/champs-sombres-ha2026.yaml](../commun/snippets/champs-sombres-ha2026.yaml), avec les couleurs Nuit flat. Si un champ reste clair, applique ce snippet carte par carte (testé).
 
 **Modèles** ([`button-card-templates/nuit-flat.yaml`](button-card-templates/nuit-flat.yaml)) :
 - `nf_base` : tuile ;
