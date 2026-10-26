@@ -185,7 +185,7 @@ nuit_flat:
   mdc-select-label-ink-color: var(--nf-muted)
   mdc-select-idle-line-color: var(--nf-line)
   mdc-select-dropdown-icon-color: var(--nf-muted)
-  # Champs — jetons du design system HA 2026 (même modèle que flaminet.yaml)
+  # Champs — jetons du design system HA 2026 (voir commun/snippets/champs-sombres-ha2026.yaml)
   # ⚠ Ajoutés en v1.1.0, NON TESTÉS dans HA.
   ha-color-form-background: var(--nf-panel2)
   ha-color-form-background-hover: "#323946"

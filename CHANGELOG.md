@@ -2,6 +2,16 @@
 
 Format inspiré de [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/), versions selon [SemVer](https://semver.org/lang/fr/).
 
+## [1.2.1] — à publier
+
+### Supprimé
+- **Thème Flaminet** : dossier [`flaminet/`](flaminet/) retiré du dépôt (thème, dashboard d'exemple et captures). Seul **`nuit_flat`** reste dans `themes/ha-themes.yaml`.
+
+### Modifié
+- Dashboard d'exemple [`nuit-flat-maison.yaml`](nuit-flat/dashboards/nuit-flat-maison.yaml) : `entity_id` et chemins de navigation remplacés par des noms neutres de démo (plus de noms évoquant l'installation d'origine).
+- Légendes des captures PNG Nuit flat : chemin `themes-par-style/…` remplacé par `nuit-flat/nuit-flat.yaml`.
+- [README](README.md), [hacs.json](hacs.json) et docs associées : retrait des références au style Flaminet.
+
 ## [1.2.0]
 
 ### Modifié

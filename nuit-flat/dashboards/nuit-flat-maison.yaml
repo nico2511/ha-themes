@@ -179,7 +179,7 @@ views:
             show_conditions: true
             show_temperature: true
           - type: entity
-            entity: sensor.garage_prise_serveur_consommation_actuelle
+            entity: sensor.prise_baie_puissance
             icon: mdi:server
           - type: template
             icon: mdi:cloud-check-outline
@@ -309,16 +309,16 @@ views:
         card_param: cards
         filter:
           include:
-            - entity_id: switch.switch_bureau_pc
-            - entity_id: switch.switch_meuble_tele
-            - entity_id: switch.switch_chambre_tv
-            - entity_id: switch.switch_imprimante3d
-            - entity_id: switch.switch_imprimante_laser
-            - entity_id: switch.prise_aspirateur
+            - entity_id: switch.prise_bureau
+            - entity_id: switch.prise_salon
+            - entity_id: switch.prise_chambre
+            - entity_id: switch.prise_atelier_1
+            - entity_id: switch.prise_atelier_2
+            - entity_id: switch.prise_menage
               options: { name: Aspirateur }
           exclude:
             - entity_id: "*camera*"
-            - entity_id: switch.garage_prise_serveur
+            - entity_id: switch.prise_baie
         sort: { method: state, reverse: true }
         options:
           type: custom:button-card
@@ -332,29 +332,29 @@ views:
         view_layout: { grid-column: 1 / -1 }
       - type: custom:button-card
         template: nf_lecture
-        entity: switch.garage_prise_serveur
+        entity: switch.prise_baie
         name: Prise serveur
         icon: mdi:server
         state_display: >
           [[[ return (entity.state === 'on' ? 'Alimentée' : 'COUPÉE') + ' · ping ' +
-             (states['binary_sensor.serveur'].state === 'on' ? 'OK' : 'perdu') ]]]
+             (states['binary_sensor.serveur_reseau'].state === 'on' ? 'OK' : 'perdu') ]]]
         styles:
           card: [border-top: 3px solid var(--nf-blue)]
           icon: [color: var(--nf-blue)]
-      - { type: custom:button-card, template: nf_valeur, entity: sensor.garage_prise_serveur_consommation_actuelle, name: Puissance }
-      - { type: custom:button-card, template: nf_valeur, entity: sensor.garage_prise_serveur_tension, name: Tension }
-      - { type: custom:button-card, template: nf_valeur, entity: sensor.garage_prise_serveur_consommation_d_aujourd_hui, name: Aujourd'hui }
-      - { type: custom:button-card, template: nf_valeur, entity: sensor.garage_prise_serveur_la_consommation_de_ce_mois_ci, name: Ce mois-ci }
+      - { type: custom:button-card, template: nf_valeur, entity: sensor.prise_baie_puissance, name: Puissance }
+      - { type: custom:button-card, template: nf_valeur, entity: sensor.prise_baie_tension, name: Tension }
+      - { type: custom:button-card, template: nf_valeur, entity: sensor.prise_baie_aujourd_hui, name: Aujourd'hui }
+      - { type: custom:button-card, template: nf_valeur, entity: sensor.prise_baie_ce_mois, name: Ce mois-ci }
       - type: custom:button-card
         template: nf_valeur
-        entity: binary_sensor.nas
+        entity: binary_sensor.stockage_reseau
         name: NAS (ping)
         state_display: "[[[ return entity.state === 'on' ? 'En ligne' : 'Éteint' ]]]"
       - type: history-graph
         title: Puissance serveur — 24 h
         hours_to_show: 24
         entities:
-          - entity: sensor.garage_prise_serveur_consommation_actuelle
+          - entity: sensor.prise_baie_puissance
             name: Puissance
         view_layout: { grid-column: 1 / -1 }
         card_mod:
