@@ -2,6 +2,11 @@
 
 Format inspiré de [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/), versions selon [SemVer](https://semver.org/lang/fr/).
 
+## [Non publié]
+
+### Ajouté
+- **Fonds d'écran Nuit flat** dans [`nuit-flat/wallpapers/`](nuit-flat/wallpapers/) : deux pour téléphone (1440×3200) et deux pour ordinateur (3840×2160), aux couleurs du thème.
+
 ## [1.2.1] — à publier
 
 ### Supprimé

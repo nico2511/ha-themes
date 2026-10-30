@@ -13,6 +13,22 @@ Thème sombre et plat qui s'applique à **tout HA** : couleurs, fonds, cartes, b
 
 ![Nuit flat, mobile](captures/nuit-flat-mobile.png)
 
+## Fonds d'écran
+
+Quatre fonds d'écran assortis, dessinés uniquement avec la palette du thème.
+
+| Téléphone (1440×3200) | Ordinateur (3840×2160) |
+|---|---|
+| [Orbes](wallpapers/nuit-flat-telephone-orbes.png) | [Collines](wallpapers/nuit-flat-bureau-collines.png) |
+| [Barres](wallpapers/nuit-flat-telephone-barres.png) | [Grille](wallpapers/nuit-flat-bureau-grille.png) |
+
+<p>
+<img src="wallpapers/nuit-flat-telephone-orbes.png" width="120" alt="Orbes">
+<img src="wallpapers/nuit-flat-telephone-barres.png" width="120" alt="Barres">
+<img src="wallpapers/nuit-flat-bureau-collines.png" width="300" alt="Collines">
+<img src="wallpapers/nuit-flat-bureau-grille.png" width="300" alt="Grille">
+</p>
+
 ## Contenu
 
 ```text
@@ -24,6 +40,7 @@ snippets/graphe-couleur-theme.yaml          couleur de courbe alignée sur la pa
 www/nuit-flat/inter-local.js                charge la police Inter servie en local
 police-inter.md                             installer la police Inter
 captures/                                   aperçus
+wallpapers/                                 fonds d'écran téléphone et ordinateur
 ```
 
 ## Prérequis
